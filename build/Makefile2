@@ -1,0 +1,15 @@
+all: comp2.exe
+comp1.exe: main.o func1.o func2.2.o
+	gcc main.o func1.o func2.2.o -o comp2.exe
+main.o: ../src/main.c
+	gcc ../src/main.c -c -o main.o
+func1.o: ../src/func1.o
+	gcc ../src/func1.c -c -o func1.o
+func2.2.o: ../src/func2.2.o
+	gcc ../src/func2.2.c -c -o func2.2.o
+install: comp2.exe
+	install ./comp2.exe /usr/local/bin
+uninstall:
+	rm /usr/local/bin/comp2.exe
+clear:
+	rm *.o comp2.exe
